@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Enviar Correo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-image: url(/img/img.jpg);
+    }
+
+    content {
+        width: 500px;
+        border: solid 1px #000;
+    }
+</style>
+
+<div class="jumbotron">
+    <center> <h1>Enviar Correo Electronico </h1></center>
+
+</div>
+
+
+
+<form method="post" enctype="multipart/form-data" style="width:600px">
+    <div>
+        <label> De:</label>
+        <center>  <input class="form-control" type="email" name="de" placeholder="Ingrese su Correo Electronico" /></center>
+
+    </div>
+    
+    <div>
+        <label>Contraseña:</label>
+        <center><input class="form-control" type="text" name="password" placeholder="Ingrese su Contraseña" /></center>
+
+
+    </div>
+    
+
+    <div>
+
+        <label> Para: </label>
+        <center> <input class="form-control" type="email" name="para" placeholder="A quien va dirigido" /></center>
+
+    </div>
+    
+
+
+    <div>
+        <label>Asunto : </label>
+        <center><input class="form-control" type="text" name="asunto " placeholder="Asunto" /></center>
+
+    </div>
+    <br />
+
+    <div>
+        <label>
+            Mensaje:
+        </label>
+        <br />
+
+        <center> <textarea style="width: 600px; height:150px;" name="mensaje" placeholder="Escriba su mensaje"></textarea></center>
+
+    </div>
+
+    <br />
+    <div>
+        <center> <input type="file" class="btn btn-default" name="fichero" /></center>
+    </div>
+    <br />
+    <div>
+        <center> <button id="enviar" class="btn btn-primary" type="submit">Enviar Correo</button></center>
+    </div>
+
+</form>
+
+
+
+
+<h3 style="color:blue">
+    @ViewBag.Mensaje
+</h3>
+<br />
+<h3 style="color:red">
+    @ViewBag.Error
+</h3>
+
+<p>
+    <ul class=" btn btn-default">
+        @Html.ActionLink("Re-Intentar", "EnviarCorreo")
+    </ul>
+
+    <ul class=" btn btn-default">
+        @Html.ActionLink("Regresar", "Index")
+
+    </ul>
+</p>

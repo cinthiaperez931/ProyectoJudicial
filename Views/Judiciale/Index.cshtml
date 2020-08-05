@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Trabajo2.Models.Judicial>
+
+@{
+    ViewBag.Title = "Listado De Datos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <style>
+        body {
+            background-image: url(/img/img.jpg);
+        }
+
+        content {
+            width: 500px;
+            border: solid 1px #000;
+        }
+    </style>
+    <div class="jumbotron">
+        <center> <h1>Lista De Registros</h1></center>
+    </div>
+
+
+    <p>
+        <ul class=" btn btn-default">
+            @Html.ActionLink("Crear Nuevo Registro", "Agregar")
+        </ul>
+    </p>
+<table class="table table-striped">
+    <tr>
+        
+        <th>
+            Id
+        </th>
+
+        <th>
+            Rol
+        </th>
+        <th>
+            Nombre Completo
+        </th>
+
+
+        <th>
+            Año de Causa
+        </th>
+
+        <th>
+            Fecha De Registro
+        </th>
+
+        <th>
+            Correo Electronico
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Rol)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NombreCompleto)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.AñoCausa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaRegistro)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CorreoElectronico)
+    </td>
+   
+
+
+    
+    <td class="text-right">
+        <i class="glyphicon glyphicon-eye-open  "></i>
+        @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+        <i class="glyphicon glyphicon-edit"></i>
+        @Html.ActionLink("Detalles", "Detalles", new { id = item.Id }) |
+
+
+        <i class="glyphicon glyphicon-trash"></i>
+        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id }, new { @class = "jElimina" })
+
+
+    </td>
+</tr>
+        }
+
+</table>
+@section scripts{
+    <script>
+
+
+        $(".jElimina").click(function (event){
+            if (! confirm('¿Estas seguro de eliminar?')) {
+            
+                event.preventDefault();
+            }
+        });
+    </script>
+     }

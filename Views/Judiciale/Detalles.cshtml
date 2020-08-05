@@ -1,0 +1,79 @@
+﻿@model Trabajo2.Models.Judicial
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <style>
+        body {
+            background-image: url(/img/img.jpg);
+        }
+
+        content {
+            width: 500px;
+            border: solid 1px #000;
+        }
+    </style>
+
+<div class=" jumbotron">
+    <center> <h1 >Detalles de Registrados </h1> </center>
+    
+</div>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Rol
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rol)
+        </dd>
+
+        <dt>
+            Nombre Completo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCompleto)
+        </dd>
+
+        <dt>
+            Año Causa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AñoCausa)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRegistro)
+
+        </dd>
+        <dt>
+            Correo Electronico
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElectronico)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    <ul class=" btn btn-default">
+        @Html.ActionLink("Regresar", "Index")
+    </ul>
+    <ul class=" btn btn-default"> @Html.ActionLink("Editar", "Editar", new { id = Model.Id })</ul>
+
+
+
+</p>
